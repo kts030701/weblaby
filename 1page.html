@@ -23,20 +23,23 @@
 <br><br>
 <br><br>
 <br><br>
-<input type="text" onkeydown="if(event.key === 'Enter')checkAnswer()"
-style="width: 300px; height: 40px; font-size: 30px;" id="answer">
-<button onclick="checkAnswer()" 
-style="width: 100px; height: 50px; font-size: 30px;">
+<input type="text" id="answer"
+style="width: 300px; height: 40px; font-size: 30px;"
+onkeydown="if(event.key === 'Enter')checkAnswer()">
+<button style="width: 100px; height: 50px; font-size: 30px;"
+onclick="checkAnswer()">
 확인</button>
+
 <script>
     function checkAnswer() {
-const userInput = document.getElementById("answer").value;
+var userInput = document.getElementById("answer").value;
 const correctAnswer = "뽀로로";
 if (userInput === correctAnswer)
 { window.location.href = "2.html";}
 else {alert("정답이 아닙니다.");}
 }
 </script>
+
 </p>
 </body>
 </html>

@@ -10,21 +10,23 @@
 주위를 밝힐 방법이 당신에게 있을까요?
 </p>
 <p style="color: black; text-align: center; font-size: 30px;">
-    <br><br>
+<br><br>
     네 그렇습니다.
 <br><br>
     드래그를 하면 어두워서 안보이던 글씨도 보이게 됩니다.
 <br><br>
     정답은 coding 입니다.
-    <br><br>
-    <input type="text" onkeydown="if(event.key === 'Enter')checkAnswer()"
-style="width: 300px; height: 40px; font-size: 30px;" id="answer">
-<button onclick="checkAnswer()" 
-style="width: 100px; height: 50px; font-size: 30px;">
+<br><br>
+
+<input type="text" id="answer" style="width: 300px; height: 40px; font-size: 30px;"
+onkeydown="if(event.key === 'Enter')checkAnswer()">
+<button style="width: 100px; height: 50px; font-size: 30px;"
+onclick="checkAnswer()">
 확인</button>
+
 <script>
     function checkAnswer() {
-const userInput = document.getElementById("answer").value;
+var userInput = document.getElementById("answer").value;
 const correctAnswer = "coding";
 if (userInput === correctAnswer)
 { window.location.href = "3.html";}
