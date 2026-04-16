@@ -7,12 +7,16 @@ document.cookie = "clear=1; path=/weblaby/; expires=Thu, 31 Dec 2026 23:59:59 GM
 
 function getCookie(name) {
   var cookies = document.cookie.split("; ");
-  for (var i = 0; i < cookies.length; i = i + 1) {
+  
+  for (var i = 0; i < cookies.length; i++) {
     let parts = cookies[i].split("=");
-    if (parts[0] === name) {
+    let key = parts[0].trim(); // 핵심
+    
+    if (key === name) {
       return parts[1];
     }
   }
+  
   return null;
 }
 alert(getCookie("clear"));
