@@ -1,6 +1,6 @@
 function ox(answer,link) {
 var userInput = document.getElementById("try").value;
-if (userInput === answer)
+if (userInput.toLowerCase() === answer.toLowerCase())
 { window.location.href = link;}
 else {alert("정답이 아닙니다.");}
 }
