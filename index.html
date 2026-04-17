@@ -1,8 +1,39 @@
 <script>
-  window.location.href = "1page.html";
 
   function getCookie(name) {
-  var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-  if (match) return match[2];
+  var cookies = document.cookie.split("; ");
+  
+  for (var i = 0; i < cookies.length; i++) {
+    let parts = cookies[i].split("=");
+    let key = parts[0].trim();
+    
+    if (key === name) {
+      return Number(parts[1]);
+    }
+  }
+  return null;
 }
+
+function convert(x) {
+  const map = {
+    0: "1page.html",
+    1: "2.html",
+    2: "3.html",
+    3: "4.html"
+  };
+  return map[x];
+}
+
+let value = getCookie('clear');
+if (value === null) value = 0;
+let url = convert(value);
+
+if (value != null && url != undefined) {
+  window.location.href = url;
+} else {
+  // 안전장치 (쿠키 없거나 이상할 때)
+  window.location.href = "1page.html";
+}
+
+
 </script>
