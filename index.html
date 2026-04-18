@@ -2,6 +2,7 @@
 
   function getCookie(name) {
   var cookies = document.cookie.split(";");
+  // split()은 구분자를 기준으로 문자열을 나눠 배열을 생성함
   
   for (var i = 0; i < cookies.length; i++) {
     let parts = cookies[i].split("=");
@@ -23,13 +24,13 @@ function convert(x) {
     41: "thel.html",
     42: "astl.html",
     43: "inkk.html"
-  };
+  }; // 객체
   return map[x];
 }
 
-let value = getCookie('clear');
-if (value === null) value = 0;
-let url = convert(value);
+let value = getCookie('clear'); // value = 1
+if (value === null) value = 0; 
+let url = convert(value); // url = map[1] = 2.html
 
 if (value != null && url != undefined) {
   window.location.href = url;
