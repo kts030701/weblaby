@@ -1,0 +1,15 @@
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+}
