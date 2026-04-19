@@ -6,7 +6,22 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="mobile.css">
  <script>
+    
 document.cookie = "clear=0; path=/weblaby/; expires=Thu, 31 Dec 2026 23:59:59 GMT;"
+function getCookie(name) {
+  let cookies = document.cookie.split(";");
+  // split()은 구분자를 기준으로 문자열을 나눠 배열을 생성함
+  
+  for (var i = 0; i < cookies.length; i++) {
+    let parts = cookies[i].split("=");
+    let key = parts[0].trim();
+    
+    if (key === name) {
+      return Number(parts[1]);
+    }
+  }
+  return null;
+}
 if (!getCookie("visitTime")) {
   document.cookie = "visitTime=" + Date.now() + "; path=/weblaby/;";
 }
