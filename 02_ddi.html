@@ -11,6 +11,7 @@
 </script>
  <script src="ox.js"></script>
  <script src="back.js"></script>
+ <script src="hint.js"></script>
 </head>
 
 <body style="background-color:black;">
@@ -29,10 +30,28 @@
 answerBox("coding", "03_scov.html");
 </script>
 <br><br>
+
 <div id="back" style="text-align: center;"></div>
 <script>
   backLink("01_goo.html")
 </script>
+<br><br>
+
+<button id="hintBtn" style="display:none; width: 180px; height: 50px; font-size: 30px; margin: 0 auto;"
+onclick="document.getElementById('hint-text').style.display = 'block';">
+힌트보기</button>
+<br><br>
+
+<span id="hint-text" style="display:none; font-size: 20px; color:white; text-align:center;">
+주위를 밝히려면 당신의 손을 사용해야 해요.
+</span>
+
+<script>
+if (now - saved >= delay) {
+  document.getElementById("hintBtn").style.display = "block";
+}
+</script>
+
 </p>
 </body>
 </html>

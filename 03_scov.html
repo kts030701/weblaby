@@ -10,10 +10,12 @@
   setVisitCookie("03");
 </script>
 <script src="ox.js"></script>
+<script src="back.js"></script>
+<script src="hint.js"></script>
 </head>
 <body>
 <p style=text-align:center;>
-<img src="3.png">
+<img src="03.png">
 <br>
 <span style="font-size: 50px;">P.S. son, horse, rock 아닙니다.</span>
 <br><br><br>
@@ -24,10 +26,18 @@
 answerBox("bishop", "04_ery.html");
 </script>
 <br><br>
-<button  style="width: 180px; height: 50px; font-size: 30px;" onclick="
-window.location.href = '2.html'
-">
-뒤로가기</button>
+
+<div id="back" style="text-align: center;"></div>
+<script>
+  backLink("02_ddi.html")
+</script>
+<br><br>
+
+<div id="hint" style="text-align: center;"></div>
+<script>
+seeHint ("한자의 뜻은 의미 없습니다. 한자의 음만 중요합니다."
+, saved, now, delay);
+</script>
 
 </p>
 

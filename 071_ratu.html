@@ -10,6 +10,8 @@
   setVisitCookie("071");
 </script>
   <script src="ox.js"></script>
+  <script src="back.js"></script>
+  <script src="hint.js"></script>
 </head>
 <body>
 <p style=text-align:center;>
@@ -19,10 +21,18 @@
 <script>
 answerBox("초보태양계파라솔", "072_lat.html");
 </script>
-<button  style="width: 180px; height: 50px; font-size: 30px;" onclick="
-window.location.href = '4.html'
-">
-뒤로가기</button>
+
+<div id="back" style="text-align: center;"></div>
+<script>
+  backLink("04_ery.html")
+</script>
+<br><br>
+
+<div id="hint" style="text-align: center;"></div>
+<script>
+seeHint ("A는 그냥 색깔 그대로 생각하세요. <br> B는 왼쪽은 저렇게 생긴 무언가가 우리 실생활에 존재하고 오른쪽은 저 순서대로 배치된 구조를 가진 무언가가 있습니다. <br> C는 정수가 아래에 있고 소수는 위에 있습니다."
+, saved, now, delay);
+</script>
 </p>
 </body>
 </html>
