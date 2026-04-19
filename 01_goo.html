@@ -34,6 +34,10 @@ answerBox("뽀로로", "02_ddi.html");
 
 <div id="hint" style="text-align: center;"></div>
 <script>
+  setVisitTimeCookie("visitTime01");
+let saved = getCookie("visitTime01");
+let now = Date.now();
+let delay = 12 * 60 * 60 * 1000;
 seeHint ("그림은 한 집에서 같이 사는 동물들을 표현한 거고, 여우와 로봇도 같이 살고 있습니다."
 , saved, now, delay);
 </script>

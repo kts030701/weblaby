@@ -35,6 +35,9 @@ answerBox("bishop", "04_ery.html");
 
 <div id="hint" style="text-align: center;"></div>
 <script>
+  setVisitTimeCookie("visitTime03");
+let saved = getCookie("visitTime03");
+let now = Date.now();
 seeHint ("한자의 뜻은 의미 없습니다. 한자의 음만 중요합니다."
 , saved, now, delay);
 </script>

@@ -47,6 +47,15 @@ onclick="document.getElementById('hint-text').style.display = 'block';">
 </span>
 
 <script>
+alert("여기 실행됨");
+setVisitTimeCookie("visitTime02");
+alert(document.cookie);
+</script>
+
+<script>
+  setVisitTimeCookie("visitTime02");
+let saved = getCookie("visitTime02");
+let now = Date.now();
 if (now - saved >= delay) {
   document.getElementById("hintBtn").style.display = "block";
 }

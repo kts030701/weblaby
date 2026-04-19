@@ -1,3 +1,6 @@
+
+
+
 function setVisitCookie(x) {
     document.cookie = "visit=" + x + "; path=/weblaby/; expires=Thu, 31 Dec 2026 23:59:59 GMT;"
 }
@@ -15,9 +18,9 @@ function getCookie(name) {
   }
   return null;
 }
-if (!getCookie("visitTime")) {
-  document.cookie = "visitTime=" + Date.now() + "; path=/weblaby/;";
+
+function setVisitTimeCookie(name) {
+  if (!getCookie(name)) {
+    document.cookie = name + "=" + Date.now() + "; path=/weblaby/;";
+  }
 }
-let saved = getCookie("visitTime");
-let now = Date.now();
-let delay = 12 * 60 * 60 * 1000;
