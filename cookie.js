@@ -20,4 +20,4 @@ if (!getCookie("visitTime")) {
 }
 let saved = getCookie("visitTime");
 let now = Date.now();
-let delay = 5 * 1000; // 테스트용 5초
+let delay = 12 * 60 * 60 * 1000;
