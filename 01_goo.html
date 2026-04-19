@@ -6,10 +6,7 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="mobile.css">
  <script src="cookie.js"></script>
-<script>
-  setClearCookie(0);
-</script>
-
+<script>setVisitCookie("01");</script>
 <script src="ox.js"></script>
 </head>
 <body>
@@ -25,17 +22,22 @@
 <br><br><br><br>
 <br><br>그럼 첫번째 문제 시작하겠습니다.
 <br><br><br><br>
-<br><br> <img src="1page.png">
+<br><br> <img src="01.png">
 <br><br> <span style="font-size: 40px; color:red">펭귄의 이름은?</span>
 <br><br><br><br><br><br>
 
-<input type="text" id="try" style="width: 300px; height: 40px; font-size: 30px;"
-onkeydown="if(event.key === 'Enter')ox('뽀로로','2.html')">
-<button  style="width: 100px; height: 50px; font-size: 30px;"
-onclick="ox('뽀로로','2.html')">
-확인</button>
+<div id="box" style="text-align: center;"></div>
+<script>
+answerBox("뽀로로", "02_ddi.html");
+</script>
+
+<div id="hint" style="text-align: center;"></div>
+<script>
+seeHint()
+</script>
+
 <br><br>
-<button id="hint" style="display:none; width: 180px; height: 50px; font-size: 30px;"
+<button id="hintBtn" style="display:none; width: 180px; height: 50px; font-size: 30px;"
 onclick="
 document.getElementById('hint-text').style.display = 'inline-block';
 ">
@@ -44,7 +46,7 @@ document.getElementById('hint-text').style.display = 'inline-block';
 <span id="hint-text" style="display:none; font-size: 20px;">그림은 한 집에서 같이 사는 동물들을 표현한 거고, 여우와 로봇도 같이 살고 있습니다.</span>
 <script>
 if (now - saved >= delay) {
-  document.getElementById("hint").style.display = "inline-block";
+  document.getElementById("hintBtn").style.display = "inline-block";
 }
 </script>
 

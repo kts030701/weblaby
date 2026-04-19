@@ -5,10 +5,12 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="mobile.css">
- <script>
-document.cookie = "clear=1; path=/weblaby/; expires=Thu, 31 Dec 2026 23:59:59 GMT;"
+ <script src="cookie.js"></script>
+<script>
+  setVisitCookie("02");
 </script>
  <script src="ox.js"></script>
+ <script src="back.js"></script>
 </head>
 
 <body style="background-color:black;">
@@ -22,16 +24,15 @@ document.cookie = "clear=1; path=/weblaby/; expires=Thu, 31 Dec 2026 23:59:59 GM
 <br> 드래그를 하면 어두워서 안보이던 글씨도 보이게 됩니다.
 <br> 정답은 coding 입니다.
 <br>
-<input type="text" id="try" style="width: 300px; height: 40px; font-size: 30px;"
-onkeydown="if(event.key === 'Enter')ox('coding','3.html')">
-<button  style="width: 100px; height: 50px; font-size: 30px;"
-onclick="ox('coding','3.html')">
-확인</button>
+<div id="box" style="text-align: center;"></div>
+<script>
+answerBox("coding", "03_scov.html");
+</script>
 <br><br>
-<button  style="width: 180px; height: 50px; font-size: 30px;" onclick="
-window.location.href = '1page.html'
-">
-뒤로가기</button>
+<div id="back" style="text-align: center;"></div>
+<script>
+  backLink("01_goo.html")
+</script>
 </p>
 </body>
 </html>

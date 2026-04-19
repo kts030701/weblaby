@@ -5,8 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="mobile.css">
-  <script>
-document.cookie = "clear=41; path=/weblaby/; expires=Thu, 31 Dec 2026 23:59:59 GMT;"
+  <script src="cookie.js"></script>
+<script>
+  setVisitCookie("051");
 </script>
   <script src="ox.js"></script>
 </head>
@@ -15,11 +16,10 @@ document.cookie = "clear=41; path=/weblaby/; expires=Thu, 31 Dec 2026 23:59:59 G
 
 <img src="한글1.png"><br>
 
-<input type="text" id="try" style="width: 300px; height: 40px; font-size: 30px;"
-onkeydown="if(event.key === 'Enter')ox('역도','eywo.html')">
-<button  style="width: 100px; height: 50px; font-size: 30px;"
-onclick="ox('역도','eywo.html')">
-확인</button><br><br>
+<div id="box" style="text-align: center;"></div>
+<script>
+answerBox("역도", "052_astl.html");
+</script>
 <button  style="width: 180px; height: 50px; font-size: 30px;" onclick="
 window.location.href = '4.html'
 ">

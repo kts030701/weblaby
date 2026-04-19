@@ -1,5 +1,5 @@
-function setClearCookie(x) {
-    document.cookie = "clear=" + x + "; path=/weblaby/; expires=Thu, 31 Dec 2026 23:59:59 GMT;"
+function setVisitCookie(x) {
+    document.cookie = "visit=" + x + "; path=/weblaby/; expires=Thu, 31 Dec 2026 23:59:59 GMT;"
 }
 function getCookie(name) {
   let cookies = document.cookie.split(";");

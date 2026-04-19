@@ -17,18 +17,24 @@
 
 function convert(x) {
   const map = {
-    0: "1page.html",
-    1: "2.html",
-    2: "3.html",
-    3: "4.html",
-    41: "thel.html",
-    42: "astl.html",
-    43: "inkk.html"
+    "01": "01_goo.html",
+    "02": "02_ddi.html",
+    "03": "03_scov.html",
+    "04": "04_ery.html",
+    "051": "051_thel.html",
+    "052": "052_astl.html",
+    "053": "053_inkk.html",
+    "061": "061_eywo.html",
+    "062": "062_rdis.html",
+    "063": "063_cong.html",
+    "071": "071_ratu.html",
+    "072": "072_lat.html",
+    "073": "073_ion.html"
   }; // 객체
   return map[x];
 }
 
-let value = getCookie('clear'); // value = 1
+let value = getCookie('visit'); // value = 1
 if (value === null) value = 0; 
 let url = convert(value); // url = map[1] = 2.html
 
