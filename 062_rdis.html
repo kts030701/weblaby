@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>영어 - 2</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="mobile.css">
+<script src="cookie.js?v=2"></script>
+<script src="front.js"></script>
+<script>
+  setVisitCookie("062");
+</script>
+<script src="ox.js"></script>
+<script src="back.js"></script>
+<script src="hint.js"></script>
+</head>
+<body>
+<p style=text-align:center;>
+<img src="영어2.png">
+<br><br>
+
+<div id="box" style="text-align: center;"></div>
+<script>
+answerBox("SKY", "063_cong.html");
+</script>
+<br><br>
+
+<div id="back" style="text-align: center;"></div>
+<script>
+  backLink("061_eywo.html")
+</script>
+
+<div id="front" style="text-align: center;"></div>
+<script>
+frontLink("063_cong.html","063");
+</script>
+
+<div id="hint" style="text-align: center;"></div>
+<script>
+  setVisitTimeCookie("visitTime063");
+let saved = getCookie("visitTime063");
+let now = Date.now();
+let delay = 12 * 60 * 60 * 1000;
+seeHint ("두 선분의 길이가 다르다. 어떤 물체를 표현한 것일까."
+, saved, now, delay);
+</script>
+
+</p>
+
+</body>
+</html>
