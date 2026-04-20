@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="mobile.css">
 <script src="cookie.js?v=2"></script>
+<script src="front.js"></script>
 <script>
   setVisitCookie("번호");
 </script>
@@ -28,7 +29,11 @@ answerBox("답", "다음링크");
 <script>
   backLink("이전링크")
 </script>
-<br><br>
+
+<div id="front" style="text-align: center;"></div>
+<script>
+frontLink("다음링크","다음번호");
+</script>
 
 <div id="hint" style="text-align: center;"></div>
 <script>
