@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>숫자 - 2</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="mobile.css">
+<script src="cookie.js?v=2"></script>
+<script>
+  setVisitCookie("072");
+</script>
+<script src="ox.js"></script>
+<script src="back.js"></script>
+<script src="hint.js"></script>
+</head>
+<body>
+<p style=text-align:center;>
+<img src="숫자2.png">
+<br><br>
+
+<div id="box" style="text-align: center;"></div>
+<script>
+answerBox("동호회", "073_ion.html");
+</script>
+<br><br>
+
+<div id="back" style="text-align: center;"></div>
+<script>
+  backLink("071_ratu.html")
+</script>
+<br><br>
+
+<div id="hint" style="text-align: center;"></div>
+<script>
+  setVisitTimeCookie("visitTime072");
+let saved = getCookie("visitTime072");
+let now = Date.now();
+let delay = 12 * 60 * 60 * 1000;
+seeHint ("높은 곳일수록 Y 값이 커진다."
+, saved, now, delay);
+</script>
+
+</p>
+
+</body>
+</html>
