@@ -50,6 +50,7 @@ onclick="document.getElementById('hint-text').style.display = 'block';">
   setVisitTimeCookie("visitTime02");
 let saved = getCookie("visitTime02");
 let now = Date.now();
+let delay = 12 * 60 * 60 * 1000;
 if (now - saved >= delay) {
   document.getElementById("hintBtn").style.display = "block";
 }
