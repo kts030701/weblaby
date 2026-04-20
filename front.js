@@ -7,6 +7,6 @@ window.location.href = '${link}'
   `
   const visitTimeValue = getCookie('visitTime'+visitTimeNumber)
   if(visitTimeValue != null) {
-document.getElementById("frontBtn").style="display: inline-block"
+document.getElementById("frontBtn").style.display="inline-block"
   }
 }
