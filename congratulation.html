@@ -3,21 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Final Hall of Fame</title>
+<title>Congratulation!</title>
+
+<style>
+body {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* 🔥 랭킹 전체 오른쪽 이동 */
+#list {
+  margin-left: 15ch; /* 알파벳 소문자 약 7개 폭 만큼 이동 */
+}
+
+/* 🔥 랭킹 한 줄 구조 (완전 고정 정렬) */
+.row {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  justify-content: center;
+  max-width: 300px;
+  margin: 6px auto;
+}
+
+.rank {
+  text-align: right;
+  padding-right: 10px;
+  font-weight: bold;
+}
+
+.name {
+  text-align: left;
+}
+</style>
+
 </head>
 
 <body>
 
-<h2> 🎉 Congratulation! </h2>
+<h2>🎉 Congratulation!</h2>
 
-<input type="text" id="name" placeholder="Enter name (Korean/English)">
-<button id="btn">Submit</button>
+축하합니다! 
+<br><br> 이 웹미궁의 모든 문제와 트릭을 간파하여 결국 완전한 클리어 페이지에 도달하셨습니다.
+<br> 아래에 닉네임을 입력하여 명예의 전당에 당신의 닉네임을 등록해주세요.
+<br><br>
+
+<input type="text" id="name" placeholder="닉네임 입력(한글/영어)">
+<button id="btn">등록</button>
 
 <p id="msg"></p>
 
 <hr>
 
-<h3> 🏆 명예의 전당 </h3>
+<h3>🏆 명예의 전당</h3>
 <div id="list">Loading...</div>
 
 <script type="module">
@@ -39,7 +76,7 @@ const db = getDatabase(app);
 const hallRef = ref(db, "hall_of_fame");
 
 /* =======================
-   1인 1회 체크
+   1인 1회 제한
 ======================= */
 if (!localStorage.getItem("cleared")) {
   localStorage.setItem("cleared", "false");
@@ -53,26 +90,24 @@ document.getElementById("btn").addEventListener("click", () => {
 
   // 한글 + 영어만 허용
   if (!/^[A-Za-z가-힣]+$/.test(name)) {
-    document.getElementById("msg").innerText = "한글/영어만 사용해주세요.";
+    document.getElementById("msg").innerText = "한글/영어만 입력 가능";
     return;
   }
 
-  // 🔒 1인 1회 제한
+  // 1인 1회 제한
   if (localStorage.getItem("cleared") === "true") {
-    document.getElementById("msg").innerText = "이미 등록하셨습니다.";
+    document.getElementById("msg").innerText = "이미 등록되었습니다.";
     return;
   }
 
-  // Firebase 저장
   push(hallRef, {
     name: name,
     time: Date.now()
   });
 
-  // 제한 저장
   localStorage.setItem("cleared", "true");
 
-  document.getElementById("msg").innerText = "Saved!";
+  document.getElementById("msg").innerText = "등록 완료!";
 });
 
 /* =======================
@@ -94,7 +129,12 @@ onValue(hallRef, (snapshot) => {
     html = "No records yet";
   } else {
     arr.forEach((item, index) => {
-      html += `<div>${index + 1}. ${item.name}</div>`;
+      html += `
+        <div class="row">
+          <div class="rank">${index + 1}.</div>
+          <div class="name">${item.name}</div>
+        </div>
+      `;
     });
   }
 
