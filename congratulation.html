@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Final + Hall of Fame</title>
+<title>Final Hall of Fame</title>
 </head>
 
 <body>
@@ -11,7 +11,7 @@
 <h2>🎉 Clear!</h2>
 
 <input type="text" id="name" placeholder="Enter name (Korean/English)">
-<button onclick="save()">Submit</button>
+<button id="btn">Submit</button>
 
 <p id="msg"></p>
 
@@ -24,6 +24,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
+/* =======================
+   Firebase 설정
+======================= */
 const firebaseConfig = {
   apiKey: "YOUR_KEY",
   authDomain: "YOUR_DOMAIN",
@@ -33,16 +36,22 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-
 const hallRef = ref(db, "hall_of_fame");
+
+/* =======================
+   1인 1회 체크
+======================= */
+if (!localStorage.getItem("cleared")) {
+  localStorage.setItem("cleared", "false");
+}
 
 /* =======================
    저장 기능
 ======================= */
-window.save = function () {
+document.getElementById("btn").addEventListener("click", () => {
   const name = document.getElementById("name").value.trim();
 
-  // 입력 검사
+  // 한글 + 영어만 허용
   if (!/^[A-Za-z가-힣]+$/.test(name)) {
     document.getElementById("msg").innerText = "Only Korean/English allowed";
     return;
@@ -54,18 +63,20 @@ window.save = function () {
     return;
   }
 
+  // Firebase 저장
   push(hallRef, {
     name: name,
     time: Date.now()
   });
 
-  // 🔒 저장 기록
+  // 제한 저장
   localStorage.setItem("cleared", "true");
 
   document.getElementById("msg").innerText = "Saved!";
-};
+});
+
 /* =======================
-   실시간 명예의 전당 출력
+   실시간 명예의전당
 ======================= */
 onValue(hallRef, (snapshot) => {
   let arr = [];
@@ -74,7 +85,7 @@ onValue(hallRef, (snapshot) => {
     arr.push(child.val());
   });
 
-  // 시간순 정렬 (먼저 온 사람 위)
+  // 시간순 정렬
   arr.sort((a, b) => a.time - b.time);
 
   let html = "";
