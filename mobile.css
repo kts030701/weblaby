@@ -1,11 +1,18 @@
+/* 모든 환경 공통 */
+body {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 모바일에서만 추가 조정 */
 @media (max-width: 768px) {
   body {
     font-size: 14px;
-  } 
-
-  img {
-    width: 100%;
-    height: auto;
   }
 
   .container {
