@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Congratulation!</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="mobile.css">
-<script src="cookie.js?v=2"></script>
-<script src="front.js"></script>
-<script>
-  setVisitCookie("번호");
-</script>
-<script src="ox.js"></script>
-<script src="back.js"></script>
-<script src="hint.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final + Hall of Fame</title>
 </head>
+
 <body>
+
 <h2>🎉 Clear!</h2>
 
 <input type="text" id="name" placeholder="Enter name (Korean/English)">
@@ -22,11 +15,15 @@
 
 <p id="msg"></p>
 
+<hr>
+
+<h3>🏆 Hall of Fame</h3>
+<div id="list">Loading...</div>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-// 🔥 여기만 네 정보로 유지
 const firebaseConfig = {
   apiKey: "YOUR_KEY",
   authDomain: "YOUR_DOMAIN",
@@ -37,23 +34,52 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
+const hallRef = ref(db, "hall_of_fame");
+
+/* =======================
+   저장 기능
+======================= */
 window.save = function () {
   const name = document.getElementById("name").value.trim();
 
-  // 한글 + 영어 허용
   if (!/^[A-Za-z가-힣]+$/.test(name)) {
     document.getElementById("msg").innerText = "Only Korean/English allowed";
     return;
   }
 
-  // Firebase 저장
-  push(ref(db, "hall_of_fame"), {
+  push(hallRef, {
     name: name,
     time: Date.now()
   });
 
   document.getElementById("msg").innerText = "Saved!";
 };
+
+/* =======================
+   실시간 명예의 전당 출력
+======================= */
+onValue(hallRef, (snapshot) => {
+  let arr = [];
+
+  snapshot.forEach(child => {
+    arr.push(child.val());
+  });
+
+  // 시간순 정렬 (먼저 온 사람 위)
+  arr.sort((a, b) => a.time - b.time);
+
+  let html = "";
+
+  if (arr.length === 0) {
+    html = "No records yet";
+  } else {
+    arr.forEach((item, index) => {
+      html += `<div>${index + 1}. ${item.name}</div>`;
+    });
+  }
+
+  document.getElementById("list").innerHTML = html;
+});
 </script>
 
 </body>
