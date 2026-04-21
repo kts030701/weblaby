@@ -42,8 +42,15 @@ const hallRef = ref(db, "hall_of_fame");
 window.save = function () {
   const name = document.getElementById("name").value.trim();
 
+  // 입력 검사
   if (!/^[A-Za-z가-힣]+$/.test(name)) {
     document.getElementById("msg").innerText = "Only Korean/English allowed";
+    return;
+  }
+
+  // 🔒 1인 1회 제한
+  if (localStorage.getItem("cleared") === "true") {
+    document.getElementById("msg").innerText = "Already submitted!";
     return;
   }
 
@@ -52,9 +59,11 @@ window.save = function () {
     time: Date.now()
   });
 
+  // 🔒 저장 기록
+  localStorage.setItem("cleared", "true");
+
   document.getElementById("msg").innerText = "Saved!";
 };
-
 /* =======================
    실시간 명예의 전당 출력
 ======================= */
