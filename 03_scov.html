@@ -51,5 +51,20 @@ seeHint ("한자의 뜻은 의미 없습니다. 한자의 음만 중요합니다
 
 </p>
 
+<button id="specialHintBtn"
+style="display:none; margin: 0 auto; width: 180px; height: 50px; font-size: 30px;"
+onclick="document.getElementById('specialhint-text').style.display = 'block';">
+특별힌트
+</button>
+<span id="specialhint-text" style="display:none; text-align: center; font-size: 20px;">한자의 음과 그들의 위치가 중요합니다. <br> (많은 분들이 정체되는 구간이라 특별히 추가된 힌트입니다) </span>
+<script>
+let delay2 = 24 * 60 * 60 * 1000;
+if (now - saved >= delay2) {
+  document.getElementById("specialHintBtn").style.display = "block";
+}
+</script>
+
+
+
 </body>
 </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>한글 - 3</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="mobile.css">
+<script src="cookie.js?v=2"></script>
+<script src="front.js"></script>
+<script>
+  setVisitCookie("053");
+</script>
+<script src="ox.js"></script>
+<script src="back.js"></script>
+<script src="hint.js"></script>
+</head>
+<body>
+<p style=text-align:center;>
+<img src="한글3.png">
+<br><br>
+
+<div id="box" style="text-align: center;"></div>
+<script>
+answerBox("컴퓨터", "04_ery.html");
+</script>
+<br><br>
+
+<div id="back" style="text-align: center;"></div>
+<script>
+  backLink("052_astl.html")
+</script>
+
+<div id="hint" style="text-align: center;"></div>
+<script>
+  setVisitTimeCookie("visitTime053");
+let saved = getCookie("visitTime053");
+let now = Date.now();
+let delay = 12 * 60 * 60 * 1000;
+seeHint ("수많은 사각형은 수많은 정사각형과 직사각형이다."
+, saved, now, delay);
+</script>
+
+</p>
+
+</body>
+</html>
