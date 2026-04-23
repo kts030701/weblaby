@@ -18,6 +18,6 @@ function getCookie(name) {
 
 function setVisitTimeCookie(name) {
   if (!getCookie(name)) {
-    document.cookie = name + "=" + Date.now() + "; path=/weblaby/;";
+    document.cookie = name + "=" + Date.now() + "; path=/; max-age=31536000; Secure; SameSite=Lax";
   }
 }
