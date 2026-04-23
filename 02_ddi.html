@@ -4,7 +4,24 @@
 <title>어두워졌다..</title>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="mobile.css">
+ <style>
+  body {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* 모바일에서만 추가 조정 */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+}
+ </style>
  <script src="cookie.js?v=3"></script>
 <script src="front.js"></script>
 <script>
