@@ -29,6 +29,18 @@ answerBox("diamond", "064_warp.html");
   backLink("062_rdis.html")
 </script>
 
+<button id="goToCrossRoads" style="display: none; margin: 0 auto; width: 180px; height: 50px; font-size: 30px;" onclick="
+window.location.href = '04_ery.html'
+">
+갈림길로</button>
+
+<script>
+  const visitTimeValue = getCookie('visitTime064');
+  if(visitTimeValue != null) {
+document.getElementById("goToCrossRoads").style.display="inline-block"
+  }
+  </script>
+
 <div id="hint" style="text-align: center;"></div>
 <script>
   setVisitTimeCookie("visitTime063");
